@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ZeroLM：由酷越公司开发，在 Mac 与 iPhone 上运行的本地 AI 助手。">
+  <meta name="theme-color" content="#090b0a">
+  <title>ZeroLM｜你的本地 AI</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!--
+  THESIS: ZeroLM 的价值不是模型名单，而是每一步都可见、可停、可恢复的本地 AI；拒绝普通 AI 官网的口号加功能卡片。
+  OWN-WORLD: 石墨黑工作台、酸性黄绿色操作信号、冷蓝本地模型核心；界面像一台正在工作的设备，而不是装饰性玻璃展柜。
+  STORY: 访客先看见真实对话与权限边界，再体验只读 Agent、微信安全检查、图像能力和双端差异，最后打开可验证的本地产品。
+  FIRST VIEWPORT: 左侧一句产品承诺与两个真实动作，右侧是可交互的本地任务轨道；Agent 权限状态固定在轨道顶部。
+  FORM: 分层验证台，第 4 个结构候选，seed 7a705b80。
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+  -->
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="返回 ZeroLM 首页">
+      <span class="brand-mark" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+      <span>ZeroLM</span>
+    </a>
+    <nav aria-label="主要导航">
+      <a href="#agent">本地 Agent</a>
+      <a href="#wechat">微信检查</a>
+      <a href="#image">图片能力</a>
+      <a href="#devices">设备</a>
+    </nav>
+    <a
+      class="header-action"
+      href="downloads/ZeroLM-macOS.zip"
+      download
+    >下载 Mac 版</a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">AI 留在你的设备上。<br><span>能力和边界，都说清楚。</span></h1>
+        <p class="hero-lede">
+          由酷越公司开发的 ZeroLM，把日常回答、资料阅读、联网搜索、语音、图片和本地 Agent
+          放进同一个 Mac 与 iPhone 产品。默认本地运行，不按次收费。
+        </p>
+        <div class="hero-actions">
+          <a
+            class="primary-action"
+            href="downloads/ZeroLM-macOS.zip"
+            download
+          >下载 Mac 版</a>
+          <a
+            class="text-action"
+            href="downloads/ZeroLM-Windows-Preview.zip"
+            download
+          >下载 Windows 预览版</a>
+          <a class="text-action" href="#proof">先看它如何工作 <span aria-hidden="true">↓</span></a>
+        </div>
+        <dl class="truth-strip" aria-label="ZeroLM 运行原则">
+          <div><dt>默认</dt><dd>本地处理</dd></div>
+          <div><dt>联网</dt><dd>用户开启</dd></div>
+          <div><dt>删除</dt><dd>逐项确认</dd></div>
+        </dl>
+      </div>
+
+      <div class="live-stage" aria-label="ZeroLM 本地任务演示">
+        <div class="stage-toolbar">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>本地运行</span>
+          <span class="stage-device">这台 Mac</span>
+        </div>
+        <div class="stage-core" aria-hidden="true">
+          <div class="core-orbit orbit-one"></div>
+          <div class="core-orbit orbit-two"></div>
+          <div class="core-sphere"></div>
+        </div>
+        <ol class="task-track" aria-label="当前任务步骤">
+          <li class="complete"><span>理解问题</span><strong>完成</strong></li>
+          <li class="active"><span>读取授权文件</span><strong>进行中</strong></li>
+          <li><span>组织回答</span><strong>等待</strong></li>
+        </ol>
+        <div class="permission-line">
+          <span>工作区权限</span>
+          <strong>只读 · /ZeroLM/资料</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-band" id="proof" aria-label="产品事实">
+      <p>不是一个假装全能的模型。</p>
+      <p>是一套会说明“正在做什么”的本地系统。</p>
+    </section>
+
+    <section class="agent-section" id="agent" aria-labelledby="agent-title">
+      <div class="section-intro">
+        <h2 id="agent-title">本地 Agent，先把权限关进一个文件夹。</h2>
+        <p>
+          选择工作区以后，Agent 才能列出、搜索、读取和总结其中的文本。
+          它不能越过工作区，也不会自行删除、移动或覆盖文件。
+        </p>
+      </div>
+      <div class="agent-workbench">
+        <div class="workspace-tree" aria-label="示例工作区">
+          <div class="workspace-name"><span aria-hidden="true">▾</span> ZeroLM 项目</div>
+          <button type="button" data-agent-command="/read README.md">README.md</button>
+          <button type="button" data-agent-command="/search Agent">src / zerolm</button>
+          <button type="button" data-agent-command="/list docs">docs</button>
+          <div class="locked-path"><span aria-hidden="true">⊘</span> 工作区外不可访问</div>
+        </div>
+        <div class="agent-terminal">
+          <div class="terminal-output" id="agent-output" role="status" aria-live="polite">
+            <p class="terminal-label">ZeroLM Agent</p>
+            <p>工作区已授权为只读。你可以搜索、列出或读取文件。</p>
+          </div>
+          <form id="agent-form">
+            <label for="agent-command">输入 Agent 指令</label>
+            <div class="command-row">
+              <input id="agent-command" name="command" value="/search ZeroLM" autocomplete="off">
+              <button type="submit">运行</button>
+            </div>
+          </form>
+          <p class="command-help">支持 /list、/read、/search。破坏性操作会在执行前被拒绝。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wechat-section" id="wechat" aria-labelledby="wechat-title">
+      <div class="wechat-copy">
+        <h2 id="wechat-title">不用导出。把对话显示在微信里。</h2>
+        <p>
+          ZeroLM 在你授权后读取当前可见的微信窗口，本地识别文字并整理重点。
+          不读取微信数据库，不保存截图。
+        </p>
+        <a
+          class="primary-action wechat-action"
+          id="wechat-launch"
+          href="zerolm://wechat-analyze"
+        >分析当前微信窗口</a>
+        <p class="wechat-result" id="wechat-result" role="status" aria-live="polite">
+          首次使用需要允许 ZeroLM 进行屏幕录制。
+        </p>
+      </div>
+      <div class="wechat-live" aria-label="微信窗口实时分析演示">
+        <div class="wechat-live-bar">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>当前窗口 · 本地识别</span>
+          <strong>未保存</strong>
+        </div>
+        <div class="wechat-transcript">
+          <p><span>09:41</span>周五前确认最终版本</p>
+          <p><span>09:42</span>预算和交付范围需要再核对</p>
+          <p class="recognized"><span>ZeroLM</span>已整理 2 个待办事项</p>
+        </div>
+        <div class="wechat-permission">
+          <span>持续分析</span>
+          <strong>用户开启 · 随时停止</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="image-section" id="image" aria-labelledby="image-title">
+      <div class="image-signal">
+        <div class="subject human" aria-label="人物主体"><span></span></div>
+        <div class="separation" aria-hidden="true"></div>
+        <div class="subject dog" aria-label="小狗主体"><span></span></div>
+      </div>
+      <div class="image-copy">
+        <h2 id="image-title">人物是人物，狗是狗。先确认主体，再回答。</h2>
+        <p>
+          图片理解现在会先分别确认人物、动物和物体的数量与位置。
+          遮挡、模糊或形状异常时会明确说“不确定”，不会把猜测包装成识别结果。
+        </p>
+        <ul>
+          <li><strong>图片理解：</strong>人物与动物分开核对</li>
+          <li><strong>图片生成：</strong>混合主体强制保持独立身体结构</li>
+          <li><strong>失败处理：</strong>显示原因，并允许重新生成</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="devices-section" id="devices" aria-labelledby="devices-title">
+      <h2 id="devices-title">同一个 ZeroLM，两种设备预算。</h2>
+      <div class="device-comparison">
+        <article class="device mac-device">
+          <div class="device-screen">
+            <span class="screen-orb" aria-hidden="true"></span>
+            <p>正在本地思考</p>
+          </div>
+          <h3>Mac</h3>
+          <p>完整文件能力、本地 Agent、图片理解、生图、语音与联网搜索。</p>
+          <strong>更强模型 · 更深工作流</strong>
+        </article>
+        <div class="device-link" aria-hidden="true"><span></span></div>
+        <article class="device phone-device">
+          <div class="phone-frame">
+            <span class="phone-orb" aria-hidden="true"></span>
+            <p>本地</p>
+          </div>
+          <h3>iPhone</h3>
+          <p>小模型优先保证内存、温度、续航和离线可用。</p>
+          <strong>随身使用 · 边界透明</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <h2 id="closing-title">本地优先，<br>也可以是一件完整产品。</h2>
+      <p>下载模型之前看见大小，运行任务时看见状态，删除数据之前拥有最后决定权。</p>
+      <div class="download-actions">
+        <a
+          class="primary-action"
+          href="downloads/ZeroLM-macOS.zip"
+          download
+        >下载 Mac 版</a>
+        <a
+          class="secondary-action"
+          href="downloads/ZeroLM-Windows-Preview.zip"
+          download
+        >下载 Windows 预览版</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>ZeroLM · 酷越公司</span>
+    <span>本地模型也会犯错，请核对重要信息。</span>
+  </footer>
+</body>
+</html>
