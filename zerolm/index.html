@@ -29,10 +29,11 @@
       <span>ZeroLM</span>
     </a>
     <nav aria-label="主要导航">
+      <a href="#start">如何开始</a>
       <a href="#agent">本地 Agent</a>
-      <a href="#wechat">微信检查</a>
-      <a href="#image">图片能力</a>
-      <a href="#devices">设备</a>
+      <a href="#capabilities">能力全表</a>
+      <a href="#privacy">权限边界</a>
+      <a href="#faq">常见问题</a>
     </nav>
     <a
       class="header-action"
@@ -95,6 +96,38 @@
     <section class="proof-band" id="proof" aria-label="产品事实">
       <p>不是一个假装全能的模型。</p>
       <p>是一套会说明“正在做什么”的本地系统。</p>
+    </section>
+
+    <section class="start-section" id="start" aria-labelledby="start-title">
+      <div class="section-intro">
+        <h2 id="start-title">从下载到第一次回答，四步就够。</h2>
+        <p>
+          能力按需安装。你会在下载前看见大小，在运行时看见状态，
+          不需要先注册账户或填写服务器地址。
+        </p>
+      </div>
+      <ol class="start-track">
+        <li>
+          <span class="step-number">01</span>
+          <div><h3>打开 ZeroLM</h3><p>下载 Mac 修复版，解压后把应用放进“应用程序”。</p></div>
+          <strong>约 1.9 MB</strong>
+        </li>
+        <li>
+          <span class="step-number">02</span>
+          <div><h3>只装你需要的能力</h3><p>日常文字约 2.2 GB，照片理解约 3.1 GB，本地生图首次约 1.1 GB。</p></div>
+          <strong>可暂停</strong>
+        </li>
+        <li>
+          <span class="step-number">03</span>
+          <div><h3>选择回答方式</h3><p>日常回答、算术推理、生图与电脑助手各自有清楚的入口。</p></div>
+          <strong>不会混用</strong>
+        </li>
+        <li>
+          <span class="step-number">04</span>
+          <div><h3>看见它正在做什么</h3><p>读取文件、联网、思考和生成都会显示当前阶段，并可随时停止。</p></div>
+          <strong>状态可见</strong>
+        </li>
+      </ol>
     </section>
 
     <section class="agent-section" id="agent" aria-labelledby="agent-title">
@@ -209,6 +242,118 @@
       </div>
     </section>
 
+    <section class="capabilities-section" id="capabilities" aria-labelledby="capabilities-title">
+      <div class="section-intro">
+        <h2 id="capabilities-title">能做什么，在哪台设备做，一张表说完。</h2>
+        <p>
+          Mac 是完整工作台；iPhone 当前是文字优先的精简版。
+          两端不会为了显得一样而隐藏硬件和模型差异。
+        </p>
+      </div>
+      <div class="capability-table-wrap" tabindex="0" aria-label="可横向滚动查看完整能力表">
+        <table class="capability-table">
+          <thead>
+            <tr><th>能力</th><th>Mac</th><th>iPhone</th><th>首次准备</th><th>数据去向</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>日常回答</th><td><span class="available">完整</span></td><td>本地文字</td><td>Mac 约 2.2 GB；手机约 470 MB</td><td>设备内</td></tr>
+            <tr><th>算术与推理</th><td><span class="available">支持</span></td><td>轻量回答</td><td>按需安装推理能力</td><td>设备内</td></tr>
+            <tr><th>PDF、表格与文本</th><td><span class="available">多文件</span></td><td>尚未完整移植</td><td>选择文件后读取</td><td>设备内</td></tr>
+            <tr><th>照片理解</th><td><span class="available">支持</span></td><td>尚未移植</td><td>Mac 约 3.1 GB</td><td>设备内</td></tr>
+            <tr><th>本地生图</th><td><span class="available">支持</span></td><td>尚未移植</td><td>Mac 首次约 1.1 GB</td><td>设备内</td></tr>
+            <tr><th>联网搜索</th><td><span class="network">手动开启</span></td><td>手动开启</td><td>需要网络</td><td>发送搜索词和网页请求</td></tr>
+            <tr><th>电脑助手</th><td><span class="available">工作区内</span></td><td>不适用</td><td>选择文件夹与权限</td><td>只读已选工作区</td></tr>
+            <tr><th>语音</th><td><span class="available">本地语音模型</span></td><td>苹果系统音色</td><td>Mac 语音约 2.4 GB</td><td>设备内</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">“尚未移植”不是故障提示：当前 iPhone 版不宣称照片理解、生图或 ZeroLM 自研语音。</p>
+    </section>
+
+    <section class="privacy-section" id="privacy" aria-labelledby="privacy-title">
+      <div class="privacy-heading">
+        <h2 id="privacy-title">你始终拥有最后决定权。</h2>
+        <p>权限不是一句口号，而是每项能力旁边可看见、可关闭、可恢复的开关。</p>
+      </div>
+      <dl class="permission-ledger">
+        <div><dt>聊天与记忆篮子</dt><dd>保存在设备上；记忆可以关闭、编辑或清空。</dd><span>默认本地</span></div>
+        <div><dt>联网搜索</dt><dd>联网搜索只在你开启后使用网络，关闭后不发送网页请求。</dd><span>手动开启</span></div>
+        <div><dt>屏幕理解</dt><dd>仅在授权后读取当前可见画面；失败时明确报错，不凭空描述。</dd><span>按次读取</span></div>
+        <div><dt>微信窗口</dt><dd>识别当前可见对话，不读取微信数据库，不保存截图。</dd><span>不碰数据库</span></div>
+        <div><dt>电脑助手</dt><dd>只在你选择的工作区中读取；删除、移动和覆盖需要另行确认。</dd><span>工作区隔离</span></div>
+      </dl>
+    </section>
+
+    <section class="support-section" id="support" aria-labelledby="support-title">
+      <div class="section-intro">
+        <h2 id="support-title">出问题时，不让你猜。</h2>
+        <p>先显示原因，再给出离问题最近的恢复入口。下面是最常见的四种情况。</p>
+      </div>
+      <div class="recovery-list">
+        <details open>
+          <summary><span>Mac 提示“无法解压”</span><strong>使用当前修复包</strong></summary>
+          <p>旧下载曾出现不完整压缩包。当前页面已换为完整修复版；重新下载后再解压，不要继续使用旧文件。</p>
+        </details>
+        <details>
+          <summary><span>照片理解显示“未安装”</span><strong>设置 → 回答</strong></summary>
+          <p>打开“设置 → 回答”，在“照片理解”中安装依赖。完成后回到对话重试。</p>
+        </details>
+        <details>
+          <summary><span>第一次生图停在准备中</span><strong>查看下载进度</strong></summary>
+          <p>首次需要约 1.1 GB。可以暂停、继续或在设置中预先安装；完成后不必重复下载。</p>
+        </details>
+        <details>
+          <summary><span>电脑助手看不到屏幕或文件</span><strong>检查系统权限</strong></summary>
+          <p>确认已允许屏幕录制，并重新选择工作区。ZeroLM 不会绕过 macOS 权限读取内容。</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">该问清楚的，放在下载前。</h2>
+      <div class="faq-list">
+        <details>
+          <summary>ZeroLM 是单独训练出来的一个基础大模型吗？</summary>
+          <p>ZeroLM 是由酷越公司打造的本地 AI 产品。它把开源模型、ZeroLM 的本地运行框架与从零训练的实验模型统一在一个产品中；实验模型能力有限，不会冒充完整大模型。</p>
+        </details>
+        <details>
+          <summary>正常聊天会偷偷联网吗？</summary>
+          <p>不会。默认聊天在设备上完成；只有你主动打开“联网搜索”时，才会发送搜索词并访问网页。</p>
+        </details>
+        <details>
+          <summary>它能直接读取或删除微信数据库吗？</summary>
+          <p>不能。ZeroLM 只在你授权后分析当前屏幕中可见的微信对话，不读取加密数据库，也不会代替你删除聊天。</p>
+        </details>
+        <details>
+          <summary>为什么 Mac 和 iPhone 的能力不同？</summary>
+          <p>本地模型受内存、温度、耗电和存储约束。Mac 端使用更完整的模型与工具；iPhone 端优先保证文字离线可用与稳定性。</p>
+        </details>
+        <details>
+          <summary>回答一定正确吗？</summary>
+          <p>不一定。本地模型也会犯错，请核对医疗、法律、财务和其他重要信息。图片模糊或资料不足时，ZeroLM 应该说明不确定。</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="release-section" id="release" aria-labelledby="release-title">
+      <div class="release-copy">
+        <p class="release-status"><span class="status-dot" aria-hidden="true"></span>当前公开下载 · 2026-07-31 修复版</p>
+        <h2 id="release-title">下载之前，先让文件可以被验证。</h2>
+        <p>Mac 压缩包已经过完整下载、解压和代码签名结构检查。</p>
+      </div>
+      <dl class="release-facts">
+        <div><dt>文件</dt><dd>ZeroLM-macOS-v2.zip</dd></div>
+        <div><dt>大小</dt><dd>1,894,650 字节</dd></div>
+        <div class="checksum-row">
+          <dt>SHA-256</dt>
+          <dd><code id="release-checksum">b0aeb7905143cbd6df54f66ac0116f3d643c8920355a1bf550959d7df9bdbd01</code></dd>
+          <button type="button" id="copy-checksum">复制校验值</button>
+        </div>
+        <div><dt>签名说明</dt><dd>开发签名；其他 Mac 首次打开时，仍可能出现 macOS 安全确认。</dd></div>
+      </dl>
+      <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+    </section>
+
     <section class="closing" aria-labelledby="closing-title">
       <h2 id="closing-title">本地优先，<br>也可以是一件完整产品。</h2>
       <p>下载模型之前看见大小，运行任务时看见状态，删除数据之前拥有最后决定权。</p>
@@ -228,7 +373,8 @@
   </main>
 
   <footer>
-    <span>ZeroLM · 酷越公司</span>
+    <span>ZeroLM · 酷越公司 · 2026</span>
+    <span><a href="#privacy">隐私与权限</a> · <a href="#support">故障恢复</a> · <a href="#release">下载校验</a></span>
     <span>本地模型也会犯错，请核对重要信息。</span>
   </footer>
 </body>
