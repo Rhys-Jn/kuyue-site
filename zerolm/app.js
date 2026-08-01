@@ -4,6 +4,9 @@ const agentForm = document.querySelector("#agent-form");
 const commandButtons = document.querySelectorAll("[data-agent-command]");
 const wechatLaunch = document.querySelector("#wechat-launch");
 const wechatResult = document.querySelector("#wechat-result");
+const copyChecksum = document.querySelector("#copy-checksum");
+const releaseChecksum = document.querySelector("#release-checksum");
+const copyStatus = document.querySelector("#copy-status");
 
 const agentReplies = {
   "/list docs": "已在授权工作区中找到 6 个文件。\n\ndocs/spec.md\ndocs/security.md\ndocs/open-model.md\n…",
@@ -52,4 +55,21 @@ wechatLaunch?.addEventListener("click", () => {
   wechatResult.textContent =
     "正在打开 ZeroLM。请在微信中显示需要分析的对话。";
   window.location.href = "zerolm://wechat-analyze";
+});
+
+copyChecksum?.addEventListener("click", async () => {
+  const checksum = releaseChecksum?.textContent?.trim();
+  if (!checksum) return;
+
+  try {
+    await navigator.clipboard.writeText(checksum);
+    copyStatus.textContent = "校验值已复制。";
+  } catch {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(releaseChecksum);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    copyStatus.textContent = "已选中校验值，请按 Command-C 复制。";
+  }
 });
